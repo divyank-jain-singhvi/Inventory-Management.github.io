@@ -1,9 +1,11 @@
 from flask import Flask, render_template,request
 from firebase import firebase
+
 firebase=firebase.FirebaseApplication("https://inventory-management-9acd5-default-rtdb.firebaseio.com/",None)
 app = Flask(__name__)
 app = Flask(__name__, static_url_path='/static', static_folder='static')
-
+email=None
+password=None
 
 @app.route('/', methods=['GET', 'POST'])
 def index6():
@@ -15,8 +17,9 @@ def index():
 
 @app.route('/index1', methods=['GET', 'POST'])
 def index1():
-    
-    data=firebase.get('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Products','')
+    global email
+    email=email.replace('@gmail.com','')
+    data=firebase.get('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Products/'+email,'')
     
     if data==None:
         return render_template('index1.html')
@@ -39,8 +42,8 @@ def index2():
 
 @app.route('/index3', methods=['GET', 'POST'])
 def index3():
-    
-    data=firebase.get('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Products','')
+    global email
+    data=firebase.get('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Products/'+email,'')
     if data==None:
         return render_template('index3.html')
     
@@ -59,7 +62,8 @@ def index3():
 
 @app.route('/index4', methods=['GET', 'POST'])
 def index4():
-    data=firebase.get('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Products','')
+    global email
+    data=firebase.get('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Products/'+email,'')
     if data==None:
         return render_template('index4.html')
     
@@ -77,8 +81,9 @@ def index4():
 
 @app.route('/index5', methods=['GET', 'POST'])
 def index5():
+    global email
     
-    data=firebase.get('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Products','')
+    data=firebase.get('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Products/'+email,'')
     if data==None:
         return render_template('index5.html')
     
@@ -97,7 +102,7 @@ def index5():
 @app.route('/add_product', methods=['GET','POST'])
 
 def submit():
-    
+    global email
     serial_number = request.form['codedata']
     amount_data = request.form['amountdata']
     buy_cost = request.form['buycost']
@@ -116,8 +121,8 @@ def submit():
           }
 
 
-    firebase.post('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Products', data)
-    data=firebase.get('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Products','')
+    firebase.post('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Products/'+email, data)
+    data=firebase.get('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Products/'+email,'')
     
     l2=[]
     for i in data:
@@ -137,8 +142,8 @@ def submit():
 @app.route('/find_product', methods=['GET','POST'])
 
 def submit2():
-
-    data=firebase.get('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Products','')
+    global email
+    data=firebase.get('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Products/'+email,'')
     
     if data==None:
         return render_template('index2.html')
@@ -186,8 +191,9 @@ def submit2():
 @app.route('/sell_product', methods=['GET','POST'])
 
 def submit3():
+    global email
     
-    data=firebase.get('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Products','')
+    data=firebase.get('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Products/'+email,'')
     
     if data==None:
         return render_template('index3.html')
@@ -238,10 +244,10 @@ def submit3():
     else:
         data_key = None
     
-    firebase.put('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Products/'+data_key, 'Quantity', str(int(l5[0])-int(selling_quantity)))
+    firebase.put('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Products/'+email+'/'+data_key, 'Quantity', str(int(l5[0])-int(selling_quantity)))
     
     
-    data=firebase.get('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Products','')
+    data=firebase.get('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Products/'+email,'')
     
     l2=[]
     for i in data:
@@ -259,8 +265,8 @@ def submit3():
 @app.route('/update_product', methods=['GET','POST'])
 
 def submit4():
-    
-    data=firebase.get('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Products','')
+    global email
+    data=firebase.get('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Products/'+email,'')
     
     if data==None:
         return render_template('index4.html')
@@ -332,13 +338,13 @@ def submit4():
     value=[amount_data,buy_cost,sell_cost,product_name,product_buy]
     list_index=0
     while True:
-        firebase.put('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Products/'+data_key,keys[list_index],value[list_index])
+        firebase.put('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Products/'+email+'/'+data_key,keys[list_index],value[list_index])
         list_index=list_index+1;
         if list_index==5:
             break
      
     
-    data=firebase.get('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Products','')
+    data=firebase.get('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Products/'+email,'')
     if data==None:
         return render_template('index4.html')
     
@@ -356,8 +362,8 @@ def submit4():
 
 @app.route('/delete_product', methods=['GET','POST'])
 def submit5():
-    
-    data=firebase.get('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Products','')
+    global email
+    data=firebase.get('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Products/'+email,'')
     
     if data==None:
         return render_template('index5.html')
@@ -376,8 +382,8 @@ def submit5():
     else:
         data_key = None
     
-    firebase.delete('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Products',data_key)
-    data=firebase.get('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Products','')
+    firebase.delete('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Products/'+email,data_key)
+    data=firebase.get('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Products/'+email,'')
     if data==None:
         return render_template('index5.html')
     l2=[]
@@ -394,7 +400,7 @@ def submit5():
 
 @app.route('/login', methods=['GET','POST'])
 def submit6():
-    
+    global email
     if request.method == 'POST':
         if 'login' in request.form:
             email=request.form['email']
@@ -407,6 +413,9 @@ def submit6():
                 }
             
             data=firebase.get('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Users','')
+            if data==None:
+                message='You dont have an account'
+                return render_template('index6.html',message=message)
             for key,value in data.items():
                 if value == input_data:
                     return render_template('index.html')
@@ -419,19 +428,30 @@ def submit6():
             email=request.form['email']
             password = request.form['user_password']
             print(email,password)
+            print(type(email))
             input_data={
                 'Email':email,
                 'Password':password
                 }
             data=firebase.get('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Users','')
-            for key,value in data.items():
-                if value == input_data:
-                    message='You Already have an account'
-                    return render_template('index6.html',message=message)
+            try:
+                for key,value in data.items():
+                    if value == input_data:
+                        message='Your Already Have An Account'
+                        return render_template('index6.html',message=message)
+                    else:
+                        for key1,value1 in value.items():
+                            print(value1,email)
+                            if value1 == email:
+                                message='incorrect password'
+                                return render_template('index6.html',message=message)
+                            else:
+                                firebase.post('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Users', input_data)
+                                return render_template('index.html')
                 
-                
-            firebase.post('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Users', input_data)
-            return render_template('index.html')
+            except AttributeError:   
+                firebase.post('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Users', input_data)
+                return render_template('index.html')
 
     return render_template('index.html')
     
