@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/styles2.css">
+</head>
+<body>
+    <fieldset>
+    <legend>Delete Your Product</legend>
+        <div class="container">
+            <div class="first-form">
+    <form action="/delete_product" method="POST">
+        <label for="serial_number">serial number :</label>
+        <input type="text" name="serial_number" list="options">
+            <datalist id="options">
+                <option value="code1">
+                <option value="code2">
+                <option value="code3">
+            </datalist><br><br>
+        
+        <label for="product_name">product name :</label>
+        <input type="text" name="product_name"><br><br>
+        <br><br>
+
+        <div class="submit"><input type="submit" value="Delete"></div>
+    </form>
+</div>
+    <div class="table">
+        <table border="1">
+            <tr>
+                <th>From where product Purchased</th>
+                <th>Name Of Product</th>
+                <th>Purchased</th>
+                <th>In Stock</th>
+                <th>Selling Price</th>
+                <th>Serial Number</th>
+            </tr>
+            {% for row in result %}
+            <tr>
+                {% for item in row %}
+                <td>{{ item }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+    <form action="/index" method="POST">
+        <div class="submit2"><input type="submit" value="Back"></div>
+    </form>
+</fieldset>
+
+</body>
+</html>

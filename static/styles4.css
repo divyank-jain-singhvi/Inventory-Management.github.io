@@ -1,0 +1,55 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color: rgb(255, 250, 243);
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 5vh;
+    margin-top: 5vh;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    font-size: 3vh;
+}
+fieldset{
+    margin-left: 5vh;
+    margin-right: 5vh;
+    margin-top: 5vh;
+}
+.form input{
+    height:2.5vh;
+    width: 40vh;
+    background-color: white;
+}
+.submit{
+    text-align: center;
+}
+.submit input{
+    height: 3.5vh;
+    width: 20vh;
+    font-size: 2vh;
+    padding: 2px;
+    background-color: white;
+}
+.table{
+    margin-right: 10vh;
+    font-size: 2.5vh;
+}
+td,th{
+    padding: 2px;
+}
+.home{
+    text-align: center;
+    margin: 5vh 0 5vh 0;
+}
+.home input{
+    background-color: white;
+    height:3vh;
+    width: 15vh;
+    font-size: 2vh;
+}

@@ -1,0 +1,65 @@
+body{
+  background-image: url('space1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.buttons a:first-child{
+  border: 2px solid black;
+  color: white;
+  background-color: blue;
+  font-size: 3vh;
+  box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.3);
+  margin-right: 10vh;
+  padding: 3vw 6vh 3vw 6vh;
+  border-radius: 50%;
+}
+.buttons a:nth-child(2){
+  border: 2px solid black;
+  color: white;
+  background-color: green;
+  font-size: 3vh;
+  box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.3);
+  margin-right: 10vh;
+  padding: 3vw 9vh 3vw 9vh;
+  border-radius: 50%;
+}
+
+.buttons a:nth-child(3){
+  border: 2px solid black;
+  color: white;
+  background-color: red;
+  font-size: 3vh;
+  box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.3);
+  margin-right: 10vh;
+  padding: 3vw 9vh 3vw 9vh;
+  border-radius: 50%;
+}
+.buttons1 a:first-child{
+  border: 2px solid black;
+  color: white;
+  background-color: rgb(255, 0, 255);
+  font-size: 3vh;
+  box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.3);
+  margin-right: 10vh;
+  padding: 3vw 9vh 3vw 9vh;
+  border-radius: 50%;
+}
+.buttons, .buttons1{
+  margin-top: 30vh;
+  text-align: center;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+.buttons1 a:nth-child(2){
+  border: 2px solid black;
+  color: white;
+  background-color: rgb(255, 128, 0);
+  font-size: 3vh;
+  box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.3);
+  margin-right: 10vh;
+  padding: 3vw 9vh 3vw 9vh;
+  border-radius: 50%;
+}

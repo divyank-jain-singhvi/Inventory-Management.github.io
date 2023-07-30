@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/styles1.css">
+</head>
+<body>
+    <fieldset>
+        <legend>Adding a new product :</legend>
+        <div class="container">
+    <form action="/add_product" method="POST">
+        <div class="search-product-form">
+        <label for="codedata">serial number :</label>
+        <input type="text" name="codedata" list="options" id="serial-no" required>
+            <datalist id="options">
+                <option value="code1">
+                <option value="code2">
+                <option value="code2">
+            </datalist><br><br>
+        
+        <label for="amountdata">amount of product :</label>
+        <input type="number" name="amountdata" required><br><br>
+
+        <label for="buycost">purchasing cost of product :</label>
+        <input type="number" name="buycost" pattern="^\d+(\.\d{1,2})?" required><br><br>
+            
+        <label for="sellcost">sell cost of product :</label>
+        <input type="number" name="sellcost" pattern="^\d+(\.\d{1,2})?" required><br><br>
+        
+        <label for="product_name">product name :</label>
+        <input type="text" name="product_name" required><br><br>
+
+        <label for="product_buy">from where product purchased:</label>
+        <input type="text" name="product_buy" required><br><br>
+        
+        </div><br><br>
+
+        <div class="submit" id="sub"><input type="submit" value="Add product"></div>
+</form>
+<div class="data">
+<table border="1">
+    <tr>
+        <th>From where product purchased</th>
+        <th>Name Of Product</th>
+        <th>Purchased</th>
+        <th>In Stock</th>
+        <th>Selling Price</th>
+        <th>Serial Number</th>
+    </tr>
+    {% for row in result %}
+    <tr>
+        {% for item in row %}
+        <td>{{ item }}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+</div>
+</div>
+<form action="/index" method="POST">
+    <div class="home"><input type="submit" value="Back"></div>
+</form>
+</fieldset>
+
+
+</body>
+</html>

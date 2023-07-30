@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/styles6.css">
+</head>
+<body>
+    <div class="image">
+<form action="/login" method="POST">
+    <div class="form">
+        <div class="input">
+            <input type="Email" name="email" placeholder="Enter Email" required>
+            <input type="password" name="user_password" placeholder="Enter password" required>
+        </div>
+        <div class="button">
+            <button type="submit" name="login" value="login">Login</button>
+            <button type="submit" name="sign_in" value="sign_in">Sign In</button>
+        </div>
+    </div>
+    <h3>{{ message }}</h3>
+</form>
+</div>
+</body>
+</html>

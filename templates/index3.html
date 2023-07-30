@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/styles3.css">
+</head>
+<body>
+    <fieldset>
+        <legend>Sell Your Product</legend>
+    <div class="container">
+        <div class="input_form">
+            <form action="/sell_product" method="POST">
+                    <label for="serial_number">serial number :</label>
+                    <input type="text" name="serial_number" list="options" required>
+                        <datalist id="options">
+                            <option value="code1">
+                            <option value="code2">
+                            <option value="code2">
+                        </datalist><br><br>
+                    
+                    <label for="product_name2">product name :</label>
+                    <input type="text" name="product_name2"><br><br>
+
+                    <label for="selling_quantity">selling quantity :</label>
+                    <input type="text" name="selling_quantity"><br><br>
+            
+                    <div class="submit3"><input type="submit" value="sell"></div>
+            </form>
+            </div>
+            <div class="table">
+                <table border="1">
+                    <tr>
+                        <th>From where product Purchased</th>
+                        <th>Name Of Product</th>
+                        <th>Purchased</th>
+                        <th>In Stock</th>
+                        <th>Selling Price</th>
+                        <th>Serial Number</th>
+                    </tr>
+                    {% for row in result %}
+                    <tr>
+                        {% for item in row %}
+                        <td>{{ item }}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        
+    </div>
+    <form action="/index" method="POST">
+        <div class="home"><input type="submit" value="Back"></div>
+    </form>
+</fieldset>
+</body>
+</html>

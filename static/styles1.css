@@ -1,0 +1,89 @@
+body{
+    background-color: rgb(255, 250, 243);
+}
+*{
+    padding: 0;
+    margin: 0;
+}
+.search-product-form label{
+    font-size: 3vh;
+}
+.search-product-form input{
+    width: 20vw;
+    height: 3vh;
+    font-size: 2.5vh;
+    background-color: white;
+}
+.search-product-form{
+    max-width: 50%;
+    margin-top: 5vh;
+}
+.submit{
+    margin: auto;
+    max-width: 65%;
+    margin-bottom: 5vh;
+}
+.submit input{
+    width: 7vw;
+    height: 4vh;
+    text-align: center;
+    padding: 5px;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 5vh;
+}
+fieldset{
+    margin: auto;
+    max-width: 90%;
+    margin-top: 5vh;
+}
+label{
+    margin-top: 30px;
+}
+table tr th{
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    padding: 1vh;
+}
+table tr th:last-child{
+    border-right: none;
+}
+table tr td{
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    padding: 1vh;
+}
+table tr td:last-child{
+    border-right: none;
+}
+table{
+    text-align: center;
+}
+.home{
+    text-align: center;
+}
+.home input{
+    height:4vh;
+    width: 15vh;
+    margin-bottom: 5vh;
+    font-size: 2.5vh;
+    padding: 2px;
+    background-color: white;
+    margin-top: 5vh;
+}
+legend{
+    font-size: 3vh;
+    margin-left: 5vh;
+}
+#sub input{
+    font-size: 2.3vh;
+    width:20vh;
+    height:4vh;
+    padding: 2px;
+    background-color: white;
+}
+.data{
+    margin-right: 5vh;
+}

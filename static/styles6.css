@@ -1,0 +1,40 @@
+body{
+    background-image: url('space2.jpg');
+    background-size: cover;
+}
+.form{
+    background-color: rgba(0,0,0,0.8);
+    padding: 10vh 0 10vh 0;
+    margin: auto;
+    max-width: 30%;
+    margin-top: 15vw;
+}
+.input{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.input input:first-child{
+    height: 4vh;
+    width: 40vh;
+}
+.input input:last-child{
+    height: 4vh;
+    width:40vh;
+    margin-top: 1vw;
+}
+.button{
+    text-align: center;
+    margin-top: 1vw;
+}
+.button button{
+    width: 15vh;
+    height: 3vh;
+}
+h3{
+    overflow: hidden;
+    margin-top: -7vh;
+    color: white;
+    text-align: center;
+}
