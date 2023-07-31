@@ -1,7 +1,6 @@
 body{
   background-image: url('space1.jpg');
   background-size: cover;
-  background-repeat: no-repeat;
   background-position: center;
 }
 .buttons a:first-child{
@@ -13,6 +12,7 @@ body{
   margin-right: 10vh;
   padding: 3vw 6vh 3vw 6vh;
   border-radius: 50%;
+  height: 40%;
 }
 .buttons a:nth-child(2){
   border: 2px solid black;
@@ -23,6 +23,7 @@ body{
   margin-right: 10vh;
   padding: 3vw 9vh 3vw 9vh;
   border-radius: 50%;
+  height: 30%;
 }
 
 .buttons a:nth-child(3){
@@ -34,6 +35,7 @@ body{
   margin-right: 10vh;
   padding: 3vw 9vh 3vw 9vh;
   border-radius: 50%;
+  height: 30%;
 }
 .buttons1 a:first-child{
   border: 2px solid black;
@@ -44,10 +46,18 @@ body{
   margin-right: 10vh;
   padding: 3vw 9vh 3vw 9vh;
   border-radius: 50%;
+  height: 30%;
 }
 .buttons, .buttons1{
-  margin-top: 30vh;
+  margin-top:10vh ;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+}
+.buttons1{
+  margin-top: 0;
 }
 a{
   text-decoration: none;
@@ -62,4 +72,5 @@ a{
   margin-right: 10vh;
   padding: 3vw 9vh 3vw 9vh;
   border-radius: 50%;
+  height: 30%;
 }

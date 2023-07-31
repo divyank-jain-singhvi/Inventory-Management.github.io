@@ -1,13 +1,14 @@
 body{
     background-image: url('space2.jpg');
     background-size: cover;
+    background-position: center;
 }
 .form{
     background-color: rgba(0,0,0,0.8);
     padding: 10vh 0 10vh 0;
     margin: auto;
     max-width: 30%;
-    margin-top: 15vw;
+    margin-top: 25vh;
 }
 .input{
     display: flex;
@@ -18,23 +19,32 @@ body{
 .input input:first-child{
     height: 4vh;
     width: 40vh;
+    font-size: 2vh;
 }
 .input input:last-child{
     height: 4vh;
     width:40vh;
-    margin-top: 1vw;
+    margin-top: 2vh;
+    font-size: 2vh;
 }
 .button{
-    text-align: center;
-    margin-top: 1vw;
+    display: flex;
+    margin-top: 2vh;
+    justify-content: center;
+    
 }
 .button button{
     width: 15vh;
     height: 3vh;
+    font-size: 2vh;
+}
+.button button:first-child{
+    margin-right: 2vh;
 }
 h3{
     overflow: hidden;
     margin-top: -7vh;
     color: white;
     text-align: center;
+    font-size: 2vh;
 }
