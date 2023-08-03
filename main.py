@@ -405,7 +405,6 @@ def submit6():
         if 'login' in request.form:
             email=request.form['email']
             password = request.form['user_password']
-            print(email,password)
             
             input_data={
                 'Email':email,
@@ -427,33 +426,37 @@ def submit6():
         elif 'sign_in' in request.form:
             email=request.form['email']
             password = request.form['user_password']
-            print(email,password)
-            print(type(email))
+            # print(email,password)
+            # print(type(email))
             input_data={
                 'Email':email,
                 'Password':password
                 }
             data=firebase.get('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Users','')
+
             try:
                 for key,value in data.items():
                     if value == input_data:
                         message='Your Already Have An Account'
                         return render_template('index6.html',message=message)
-                    else:
+                    if value=={}:
                         for key1,value1 in value.items():
-                            print(value1,email)
-                            if value1 == email:
-                                message='incorrect password'
-                                return render_template('index6.html',message=message)
-                            else:
+                            # print(value1,email)
+                            # if value1 == email:
+                            #     message='incorrect password'
+                            #     return render_template('index6.html',message=message)
+                            # else:
                                 firebase.post('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Users', input_data)
                                 return render_template('index.html')
-                
+                    for key1,value1 in value.items():
+                        if value1 == email:
+                            message='incorrect password'
+                            return render_template('index6.html',message=message)
             except AttributeError:   
                 firebase.post('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Users', input_data)
                 return render_template('index.html')
-
-    return render_template('index.html')
+            firebase.post('https://inventory-management-9acd5-default-rtdb.firebaseio.com/Users', input_data)
+            return render_template('index.html')
     
     
     
